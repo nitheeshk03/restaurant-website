@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/public/css/browse.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <h1>🍽️ Browse Restaurants</h1>
+      <p class="subtitle">Search the database by page, page size, and borough.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Filters</h2>
+      <form method="POST" action="/browse" class="form">
+        <div class="form__group">
+          <label for="page">Page</label>
+          <input id="page" name="page" type="number" min="1" max="10000" value="<%= form.page %>" required />
+        </div>
+        <div class="form__group">
+          <label for="perPage">Per Page</label>
+          <input id="perPage" name="perPage" type="number" min="1" max="100" value="<%= form.perPage %>" required />
+        </div>
+        <div class="form__group form__group--wide">
+          <label for="borough">Borough (optional)</label>
+          <input id="borough" name="borough" type="text" maxlength="50" placeholder="e.g., Manhattan, Brooklyn" value="<%= form.borough %>" />
+        </div>
+        <div class="form__actions">
+          <button class="btn" type="submit">Search</button>
+          <a class="btn btn--secondary" href="/browse">Reset</a>
+        </div>
+      </form>
+      <% if (error) { %>
+        <div class="alert alert--error"><%= error %></div>
+      <% } %>
+    </section>
+
+    <% if (result) { %>
+      <section class="card">
+        <div class="result__header">
+          <h2>Results</h2>
+          <div class="result__meta">
+            <span>Page <strong><%= result.page %></strong></span>
+            <span>Per Page <strong><%= result.perPage %></strong></span>
+            <span>Returned <strong><%= result.totalReturned %></strong></span>
+            <% if (result.borough) { %>
+              <span>Borough <strong><%= result.borough %></strong></span>
+            <% } %>
+          </div>
+        </div>
+
+        <% if (result.rows.length === 0) { %>
+          <p class="muted">No restaurants found for the specified filters.</p>
+        <% } else { %>
+          <ul class="grid">
+            <% result.rows.forEach(function(r) { %>
+              <li class="card card--item">
+                <div class="item__top">
+                  <h3><%= r.name %></h3>
+                  <span class="badge"><%= r.cuisine || 'Cuisine' %></span>
+                </div>
+                <div class="item__body">
+                  <p class="muted">
+                    <% if (r.address) { %>
+                      <%= r.address.street || '' %><br/>
+                      <%= r.address.city || '' %>, <%= r.address.state || '' %> <%= r.address.zipCode || '' %><br/>
+                      <% if (r.address.borough) { %>
+                        <strong><%= r.address.borough %></strong>
+                      <% } else if (r.borough) { %>
+                        <strong><%= r.borough %></strong>
+                      <% } %>
+                    <% } %>
+                  </p>
+                  <div class="item__meta">
+                    <% if (r.phone) { %><span>📞 <%= r.phone %></span><% } %>
+                    <% if (r.email) { %><span>✉️ <%= r.email %></span><% } %>
+                  </div>
+                </div>
+                <div class="item__footer">
+                  <span class="pill"><%= r.priceRange || '$$' %></span>
+                  <% if (typeof r.rating !== 'undefined') { %>
+                    <span class="pill">⭐ <%= r.rating %></span>
+                  <% } %>
+                </div>
+              </li>
+            <% }) %>
+          </ul>
+          <div class="pagination-hint">
+            <% if (result.hasMore) { %>
+              <span>There may be more results on the next page.</span>
+            <% } else { %>
+              <span>End of results for this query.</span>
+            <% } %>
+          </div>
+        <% } %>
+      </section>
+    <% } %>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <%= new Date().getFullYear() %> Restaurant Browser • Express + EJS Demo</div>
+  </footer>
+</body>
+</html> 

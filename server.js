@@ -2,11 +2,18 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
+const path = require('path');
 const db = require('./modules/db');
 const restaurantRoutes = require('./routes/restaurants');
+const browseRoutes = require('./views/browseRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// View engine (EJS) and static assets
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Middleware
 app.use(cors());
@@ -15,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/restaurants', restaurantRoutes);
+app.use('/browse', browseRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -34,7 +42,8 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       restaurants: '/api/restaurants',
-      health: '/health'
+      health: '/health',
+      browse: '/browse'
     }
   });
 });
@@ -62,34 +71,21 @@ async function startServer() {
   try {
     console.log('🚀 Starting Restaurant Web API...');
     
-    // Get MongoDB connection string from environment
     const connectionString = process.env.MONGODB_URI;
-    
     if (!connectionString) {
       throw new Error('MONGODB_URI environment variable is required. Please check your .env file.');
     }
 
     console.log('📡 Initializing database connection...');
-    
-    // Initialize database connection - server only starts if this succeeds
     await db.initialize(connectionString);
-    
     console.log('✅ Database initialized successfully');
     
-    // Start the server only after successful database connection
     app.listen(PORT, () => {
       console.log(`🌟 Server is running on port ${PORT}`);
       console.log(`🔗 API Base URL: http://localhost:${PORT}`);
       console.log(`🏥 Health Check: http://localhost:${PORT}/health`);
       console.log(`🍽️  Restaurants API: http://localhost:${PORT}/api/restaurants`);
-      console.log('📚 Available endpoints:');
-      console.log('   GET    /api/restaurants       - Get all restaurants');
-      console.log('   GET    /api/restaurants/:id   - Get restaurant by ID');
-      console.log('   POST   /api/restaurants       - Create new restaurant');
-      console.log('   PUT    /api/restaurants/:id   - Update restaurant');
-      console.log('   DELETE /api/restaurants/:id   - Delete restaurant');
-      console.log('   GET    /api/restaurants/cuisine/:cuisine - Get by cuisine');
-      console.log('   GET    /api/restaurants/city/:city - Get by city');
+      console.log(`🧭 Browse UI: http://localhost:${PORT}/browse`);
     });
     
   } catch (error) {
@@ -102,7 +98,6 @@ async function startServer() {
   }
 }
 
-// Handle graceful shutdown
 process.on('SIGINT', async () => {
   console.log('\n🛑 Shutting down server...');
   try {
@@ -126,5 +121,4 @@ process.on('SIGTERM', async () => {
   }
 });
 
-// Start the server
 startServer(); 
