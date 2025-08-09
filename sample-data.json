@@ -1,0 +1,218 @@
+[
+  {
+    "name": "Mario's Italian Bistro",
+    "address": {
+      "street": "123 Main Street",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "borough": "Manhattan"
+    },
+    "borough": "Manhattan",
+    "cuisine": "Italian",
+    "phone": "(212) 555-0101",
+    "email": "contact@mariosbistro.com",
+    "website": "https://www.mariosbistro.com",
+    "rating": 4.5,
+    "priceRange": "$$$",
+    "hours": {
+      "monday": "Closed",
+      "tuesday": "11:00 AM - 10:00 PM",
+      "wednesday": "11:00 AM - 10:00 PM",
+      "thursday": "11:00 AM - 10:00 PM",
+      "friday": "11:00 AM - 11:00 PM",
+      "saturday": "11:00 AM - 11:00 PM",
+      "sunday": "12:00 PM - 9:00 PM"
+    },
+    "isActive": true
+  },
+  {
+    "name": "Dragon Palace",
+    "address": {
+      "street": "456 Queen Street",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "11201",
+      "borough": "Brooklyn"
+    },
+    "borough": "Brooklyn",
+    "cuisine": "Chinese",
+    "phone": "(718) 555-0202",
+    "email": "info@dragonpalace.com",
+    "website": "https://www.dragonpalace.com",
+    "rating": 4.2,
+    "priceRange": "$$",
+    "hours": {
+      "monday": "11:00 AM - 9:00 PM",
+      "tuesday": "11:00 AM - 9:00 PM",
+      "wednesday": "11:00 AM - 9:00 PM",
+      "thursday": "11:00 AM - 9:00 PM",
+      "friday": "11:00 AM - 10:00 PM",
+      "saturday": "11:00 AM - 10:00 PM",
+      "sunday": "12:00 PM - 9:00 PM"
+    },
+    "isActive": true
+  },
+  {
+    "name": "Spice Garden",
+    "address": {
+      "street": "789 King Street",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10456",
+      "borough": "Bronx"
+    },
+    "borough": "Bronx",
+    "cuisine": "Indian",
+    "phone": "(718) 555-0303",
+    "email": "hello@spicegarden.com",
+    "website": "https://www.spicegarden.com",
+    "rating": 4.7,
+    "priceRange": "$$",
+    "hours": {
+      "monday": "5:00 PM - 10:00 PM",
+      "tuesday": "5:00 PM - 10:00 PM",
+      "wednesday": "5:00 PM - 10:00 PM",
+      "thursday": "5:00 PM - 10:00 PM",
+      "friday": "5:00 PM - 11:00 PM",
+      "saturday": "5:00 PM - 11:00 PM",
+      "sunday": "5:00 PM - 9:00 PM"
+    },
+    "isActive": true
+  },
+  {
+    "name": "Burger Junction",
+    "address": {
+      "street": "321 Broadway",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10013",
+      "borough": "Manhattan"
+    },
+    "borough": "Manhattan",
+    "cuisine": "American",
+    "phone": "(212) 555-0404",
+    "email": "orders@burgerjunction.com",
+    "website": "https://www.burgerjunction.com",
+    "rating": 4.1,
+    "priceRange": "$$",
+    "hours": {
+      "monday": "10:00 AM - 11:00 PM",
+      "tuesday": "10:00 AM - 11:00 PM",
+      "wednesday": "10:00 AM - 11:00 PM",
+      "thursday": "10:00 AM - 11:00 PM",
+      "friday": "10:00 AM - 12:00 AM",
+      "saturday": "10:00 AM - 12:00 AM",
+      "sunday": "10:00 AM - 10:00 PM"
+    },
+    "isActive": true
+  },
+  {
+    "name": "Tokyo Sushi Bar",
+    "address": {
+      "street": "567 Northern Blvd",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "11101",
+      "borough": "Queens"
+    },
+    "borough": "Queens",
+    "cuisine": "Japanese",
+    "phone": "(718) 555-0505",
+    "email": "info@tokyosushi.com",
+    "website": "https://www.tokyosushi.com",
+    "rating": 4.8,
+    "priceRange": "$$$",
+    "hours": {
+      "monday": "Closed",
+      "tuesday": "5:00 PM - 10:00 PM",
+      "wednesday": "5:00 PM - 10:00 PM",
+      "thursday": "5:00 PM - 10:00 PM",
+      "friday": "5:00 PM - 11:00 PM",
+      "saturday": "5:00 PM - 11:00 PM",
+      "sunday": "4:00 PM - 9:00 PM"
+    },
+    "isActive": true
+  },
+  {
+    "name": "La Casa Mexicana",
+    "address": {
+      "street": "890 Bay Street",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10304",
+      "borough": "Staten Island"
+    },
+    "borough": "Staten Island",
+    "cuisine": "Mexican",
+    "phone": "(718) 555-0606",
+    "email": "contact@lacasamexicana.com",
+    "website": "https://www.lacasamexicana.com",
+    "rating": 4.3,
+    "priceRange": "$$",
+    "hours": {
+      "monday": "11:30 AM - 9:00 PM",
+      "tuesday": "11:30 AM - 9:00 PM",
+      "wednesday": "11:30 AM - 9:00 PM",
+      "thursday": "11:30 AM - 9:00 PM",
+      "friday": "11:30 AM - 10:00 PM",
+      "saturday": "11:30 AM - 10:00 PM",
+      "sunday": "12:00 PM - 9:00 PM"
+    },
+    "isActive": true
+  },
+  {
+    "name": "Brooklyn Diner",
+    "address": {
+      "street": "234 Flatbush Avenue",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "11217",
+      "borough": "Brooklyn"
+    },
+    "borough": "Brooklyn",
+    "cuisine": "American",
+    "phone": "(718) 555-0707",
+    "email": "info@brooklyndiner.com",
+    "website": "https://www.brooklyndiner.com",
+    "rating": 4.0,
+    "priceRange": "$",
+    "hours": {
+      "monday": "6:00 AM - 11:00 PM",
+      "tuesday": "6:00 AM - 11:00 PM",
+      "wednesday": "6:00 AM - 11:00 PM",
+      "thursday": "6:00 AM - 11:00 PM",
+      "friday": "6:00 AM - 12:00 AM",
+      "saturday": "6:00 AM - 12:00 AM",
+      "sunday": "7:00 AM - 11:00 PM"
+    },
+    "isActive": true
+  },
+  {
+    "name": "Le Petit Bistro",
+    "address": {
+      "street": "456 East 86th Street",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10028",
+      "borough": "Manhattan"
+    },
+    "borough": "Manhattan",
+    "cuisine": "French",
+    "phone": "(212) 555-0808",
+    "email": "reservations@lepetitbistro.com",
+    "website": "https://www.lepetitbistro.com",
+    "rating": 4.6,
+    "priceRange": "$$$$",
+    "hours": {
+      "monday": "Closed",
+      "tuesday": "Closed",
+      "wednesday": "6:00 PM - 10:00 PM",
+      "thursday": "6:00 PM - 10:00 PM",
+      "friday": "6:00 PM - 11:00 PM",
+      "saturday": "6:00 PM - 11:00 PM",
+      "sunday": "5:00 PM - 9:00 PM"
+    },
+    "isActive": true
+  }
+] 
